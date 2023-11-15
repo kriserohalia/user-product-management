@@ -32,14 +32,14 @@ func JWTMiddleware(next http.Handler) http.Handler {
 			switch v.Errors {
 			case jwt.ValidationErrorSignatureInvalid:
 
-				// token invalid
+				
 				response := map[string]string{"message":"Unauthorized"}
 				helper.ResponseJson(w, http.StatusUnauthorized, response)
 				return
 			
 			case jwt.ValidationErrorExpired:
 				
-				//token expired
+				
 				response := map[string]string{"message":"Unauthorized, Token Expired"}
 				helper.ResponseJson(w, http.StatusUnauthorized, response)
 				return
